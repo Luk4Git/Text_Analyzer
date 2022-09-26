@@ -1,9 +1,9 @@
 """
 projekt_1.py: první projekt do Engeto Online Python Akademie
 
-
-
-discord: Lukáš M., Lukáš#8477
+author: Lukáš Matela
+email: lukas.matela@innogy.cz, Lukas.Matela@gmail.com
+discord: Lukáš M., Lukáš#8515
 """
 
 #Anylyzovaný text
@@ -37,7 +37,7 @@ garpike and stingray are also present.
 
 #Vyžádá si od uživatele přihlašovací jméno a heslo a ověří shodu dle slovníku users
 #Špatná kombinace přihlašovacího jména a hesla ukončí program.
-separator = "----------------------------------------"
+separator = "-"*50
 users = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}
 username = input("Username: ")
 password = input("Password: ")
@@ -58,14 +58,15 @@ number_t = int(choice_text)-1
 #Ukončení programu při špatné volbě
 if int(choice_text) not in [1, 2, 3]:
     print("Wrong choice, terminating the program..")
+    quit()
 
 #Počet čísel a číslíc
 words_cut=TEXTS[number_t].split()
-words_sum = int()
-numbers_sum = int()
+words_sum = 0
+numbers_sum = 0
 
 for word in words_cut:
-    if isinstance(word, str) and not word.isnumeric():
+    if not word.isnumeric():
        words_sum += 1
     else:
         numbers_sum +=1
@@ -73,7 +74,7 @@ for word in words_cut:
 #Soucet čisel (ne cifer)
 sum_digit=0
 for number in words_cut:
-    if number.isdigit() == True:
+    if number.isnumeric() == True:
         sum_mid = int(number)
         sum_digit= sum_digit + sum_mid
 
@@ -145,25 +146,28 @@ for word_length in words_cut:
         stars11 = lenword11_sum * '*'
 
 #Zobrazení výsledků
-print(f"{separator} \n"
-      f"There are {words_sum} words in the selected text.\n"
-      f"There are {titlecase_sum} titlecase words.\n"
-      f"There are {uppercase_sum} uppercase words.\n"
-      f"There are {lowercase_sum} lowercase words.\n"
-      f"There are {numbers_sum} numeric strings.\n"
-      f"The sum of all the numbers {sum_digit}.\n"
-      f"{separator} \n"
-      f"LEN|  OCCURENCES  |NR.\n"
-      f"{separator} \n"
-      f"1\t|{stars1}\t\t|{lenword1_sum}\n"
-      f"2\t|{stars2}\t\t|{lenword2_sum}\n"
-      f"3\t|{stars3}\t\t|{lenword3_sum}\n"
-      f"4\t|{stars4}\t\t|{lenword4_sum}\n"
-      f"5\t|{stars5}\t\t|{lenword5_sum}\n"
-      f"6\t|{stars6}\t\t|{lenword6_sum}\n"
-      f"7\t|{stars7}\t\t|{lenword7_sum}\n"
-      f"8\t|{stars8}\t\t|{lenword8_sum}\n"
-      f"9\t|{stars9}\t\t|{lenword9_sum}\n"
-      f"10\t|{stars10}\t\t|{lenword10_sum}\n"
-      f"11\t|{stars11}\t\t|{lenword11_sum}\n"
+
+print(f'{"1":4} | {3*"*" :>19} | 3')
+
+print(f'{separator} \n'
+      f'There are {words_sum} words in the selected text.\n'
+      f'There are {titlecase_sum} titlecase words.\n'
+      f'There are {uppercase_sum} uppercase words.\n'
+      f'There are {lowercase_sum} lowercase words.\n'
+      f'There are {numbers_sum} numeric strings.\n'
+      f'The sum of all the numbers {sum_digit}.\n'
+      f'{separator} \n'
+      f'LEN|  OCCURENCES  |NR.\n'
+      f'{separator} \n'
+      f'{"1":4} | {stars1 :>19} | {lenword1_sum}\n'
+      f'{"2":4} | {stars2 :>19} | {lenword2_sum}\n'
+      f'{"3":4} | {stars3 :>19} |{lenword3_sum}\n'
+      f'{"4":4} | {stars4 :>19} |{lenword4_sum}\n'
+      f'{"5":4} | {stars5 :>19} |{lenword5_sum}\n'
+      f'{"6":4} | {stars6 :>19} |{lenword6_sum}\n'
+      f'{"7":4} | {stars7 :>19} |{lenword7_sum}\n'
+      f'{"8":4} | {stars8 :>19} |{lenword8_sum}\n'
+      f'{"9":4} | {stars9 :>19} |{lenword9_sum}\n'
+      f'{"10":4} | {stars10 :>19} |{lenword10_sum}\n'
+      f'{"11":4} | {stars11 :>19} |{lenword11_sum}\n'
       )
